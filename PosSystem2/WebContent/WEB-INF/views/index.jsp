@@ -46,7 +46,7 @@
 </head>
 
 <body>
-<form action="/PosSystem2/loginAction" name="frm" method="POST">
+<form action="/PosSystem2/loginAction" name="frm">
 
 	<div class="container">
 		<div class="top">
