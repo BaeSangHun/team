@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class Controller2 {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
-		
+		System.out.println("index 화면(로그인화면) 나오는 메서드 실행");
 		
 		return "index";
 	}
@@ -28,7 +28,7 @@ public class Controller2 {
 	//로그인 체크 메서드
 	@RequestMapping(value = "/loginAction", method = RequestMethod.GET)
 	public String login(HttpServletRequest request) {
-		System.out.println("login 실행 확인");
+		System.out.println("login 메서드 실행 확인");
 		
 		String returnURL = "";
 		
@@ -44,11 +44,19 @@ public class Controller2 {
 			returnURL = "redirect:/home"; // 일치하면 관리자 화면으로 이동
 		}else{
 			System.out.println("로그인 정보 일치하지 않음 로그인창 이동");
-			returnURL = "redirect:/index"; // 일치하지 않으면 로그인페이지 재이동
+			returnURL = "redirect:/"; // 일치하지 않으면 로그인페이지 재이동
 		}
 		
 		
 		
 		return returnURL;
+	}
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest request){
+		System.out.println("컨트롤러 로그아웃 메서드 실행");	
+		request.getSession().invalidate();
+		request.getSession().removeAttribute("admin");
+		return "index";
+		
 	}
 }
