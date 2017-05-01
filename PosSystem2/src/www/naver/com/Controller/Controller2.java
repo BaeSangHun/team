@@ -26,7 +26,7 @@ public class Controller2 {
 	}
 	//폼에서 로그인 버튼 눌렀을때 실행
 	//로그인 체크 메서드
-	@RequestMapping(value = "/loginAction", method = RequestMethod.GET)
+	@RequestMapping(value = "/loginAction", method = RequestMethod.POST)
 	public String login(HttpServletRequest request) {
 		System.out.println("login 메서드 실행 확인");
 		
@@ -36,8 +36,8 @@ public class Controller2 {
 		if("admin".equals(request.getParameter("usercode")) && "test".equals(request.getParameter("password"))){
 			
 			Map<String,Object> map = new HashMap<String,Object>();
-			map.put("admin_id", "admin");
-			map.put("admin_name", "관리자");
+			map.put("admin_id", "afafafaf");
+			map.put("admin_name", "agggggg");
 			request.getSession().setAttribute("admin", map);
 			
 			System.out.println("로그인 정보 일치 로그인창 이동");
@@ -57,6 +57,13 @@ public class Controller2 {
 		request.getSession().invalidate();
 		request.getSession().removeAttribute("admin");
 		return "index";
+		
+	}
+	@RequestMapping("/test")
+	public String test(){
+		System.out.println("test 메서드 실행");	
+	
+		return "NewFile";
 		
 	}
 }

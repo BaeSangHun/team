@@ -31,6 +31,7 @@
 	<!-- 로그인 인터셉터 테스트 -->
 		<interceptors>
 		<interceptor>
+			<mapping path="/test"/>
 			<mapping path="/logout"/>
 			<mapping path="/home"/>
 			<beans:bean class="www.naver.com.Interceptor.test"></beans:bean>
@@ -61,28 +62,11 @@
 	
 	<context:component-scan base-package="www.naver.com" />
 		
-		<!-- Mybatis 설정 -->
-	 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <beans:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <beans:property name="url" value="jdbc:mysql://localhost:3306/art9000?useUnicode=true&amp;characterEncoding=euckr"/>
-        <beans:property name="username" value="art9000"/>
-        <beans:property name="password" value="tkdgns12"/>
-    </beans:bean>
-    <!-- mybatis 세션생성을 위한 팩토리 생성 -->
-    <beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <!-- mybatis 세션생성시 사용할 dataSource주입 -->
-        <beans:property name="dataSource" ref="dataSource" />
-        <!-- mybatis 세션생성후 쿼리를 실행시킬때 사용할 쿼리위치(메퍼)설정 -->
-        <beans:property name="mapperLocations">
-            <beans:list>
-                <beans:value>classpath:www/naver/com/service/Mapper.xml</beans:value>
-            </beans:list>
-        </beans:property>
-    </beans:bean>
-    <!-- mybatis를 사용하여 db에접속하여 쿼리를 보내는 주체인 SqlSessionTemplate빈 생성 -->
-    <beans:bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-        <beans:constructor-arg index="0" ref="sqlSessionFactory" />
-    </beans:bean>
+	
+	
+	
+	 
+	
 	
 	
 </beans:beans>

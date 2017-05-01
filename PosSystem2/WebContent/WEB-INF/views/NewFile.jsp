@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/PosSystem2/logout">로그아웃</a>
-<a href="/PosSystem2/test">목록</a>
-
 아이디:${sessionScope.admin.admin_id}
 이름:${sessionScope.admin.admin_name}
 </body>
